@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	// ConnectionServerEndpoint defines the endpoint for the GCM connection server owned by Google.
+	// ConnectionServerEndpoint defines the endpoint for the GCM connection server owned by Google (deprecated).
 	ConnectionServerEndpoint = "https://android.googleapis.com/gcm/send"
 	// FCMServerEndpoint defines the endpoint for the FCM connection server by Firebase.
 	FCMServerEndpoint = "https://fcm.googleapis.com/fcm/send"
@@ -25,9 +25,9 @@ const (
 	MaxBackoffDelay = 1024000
 )
 
-// GCMEndpoint by default points to the GCM connection server owned by Google,
+// GCMEndpoint by default points to the GCM connection server owned by Google (deprecated),
 // but can be otherwise set to a differnet URL if needed (e.g. FCMServerEndpoint).
-var GCMEndpoint = ConnectionServerEndpoint
+var GCMEndpoint = FCMServerEndpoint
 
 // Sender sends GCM messages to the GCM connection server.
 type Sender struct {
@@ -226,7 +226,7 @@ func (s *Sender) SendMulticastNoRetry(msg *Message, registrationIds []string) (*
 			result.Results[i] = Result{
 				MessageID:               res.MessageID,
 				CanonicalRegistrationID: res.RegistrationID,
-				Error: res.Err,
+				Error:                   res.Err,
 			}
 		}
 	}
@@ -307,7 +307,7 @@ func (s *Sender) SendMulticastWithRetries(msg *Message, regIDs []string, retries
 		finalResults[i] = Result{
 			MessageID:               result.MessageID,
 			CanonicalRegistrationID: result.RegistrationID,
-			Error: result.Err,
+			Error:                   result.Err,
 		}
 		if result.MessageID != "" {
 			finalResult.Success++
