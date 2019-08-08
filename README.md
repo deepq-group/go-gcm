@@ -6,7 +6,7 @@ by Google via the HTTP protocol.
 
 Features and Highlights
 -----------------------
-
+- fix Send Http 400 error, reason: DeprecatedEndpoint.
 - Support sending messages of the following types:
   - [downstream messages][1] (with [send-to-sync][2] and [Notification][3] and [Data][4] payload support)
   - [topic messages][5]
@@ -21,38 +21,20 @@ Getting Started
 
 To install this library:
 
-    go get github.com/wuman/go-gcm
+    go get github.com/deepq-group/go-gcm
 
 To import as `gcm` alias:
 
-    import gcm "github.com/wuman/go-gcm"
-
-Contribute
-----------
-
-If you would like to contribute code you can do so through GitHub by forking
-the repository and sending a pull request.
-
-You may [file an issue](https://github.com/wuman/go-gcm/issues/new) if you find
-bugs or would like to request a new feature.
-
-To-Do List
-----------
-
-- [ ] add sample
-- [ ] support for godoc 
-- [ ] support for XMPP protocol
-- [ ] support for receiving upstream XMPP messages (and sending ACK message back) from client apps
+    import gcm "github.com/deepq-group/go-gcm"
 
 Developed By
 ------------
 
-* David Wu - <david@wu-man.com> - [http://blog.wu-man.com](http://blog.wu-man.com)
+* DeepQ Group
+* forked from wuman/go-gcm
 
 LICENSE
 -------
-
-    Copyright 2016 David Wu
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
